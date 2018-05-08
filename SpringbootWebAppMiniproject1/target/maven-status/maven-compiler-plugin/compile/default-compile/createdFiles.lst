@@ -1,0 +1,9 @@
+com\rfboernehave\demo\DemoApplication.class
+com\rfboernehave\demo\domains\MinBruger.class
+com\rfboernehave\demo\services\BrugerServiceImpl.class
+com\rfboernehave\demo\services\BarnService.class
+com\rfboernehave\demo\controller\HomeController.class
+com\rfboernehave\demo\services\BrugerService.class
+com\rfboernehave\demo\services\BarnServiceImpl.class
+com\rfboernehave\demo\domains\Barn.class
+com\rfboernehave\demo\repositories\BrugerRepository.class

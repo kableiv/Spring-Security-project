@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Home</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>-->
+
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <h1>Børneregister</h1>
+
+
+    <div></div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fornavn</th>
+            <th>Efternavn</th>
+            <th>Alder</th>
+            <th>Cpr</th>
+            <th>Indmeldelsesdato</th>
+            <th>Indstillinger</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="barn: ${boern}">
+            <td th:text="${barn.id}"/>
+            <td th:text="${barn.fornavn}"/>
+            <td th:text="${barn.efternavn}"/>
+            <td th:text="${barn.alder}"/>
+            <td th:text="${barn.cpr}"/>
+            <td th:text="${barn.indmeldelsesdato}"/>
+            <td>
+
+                <a class="btn btn-info" th:href="${'detaljer/' + barn.id}">
+                    detaljer
+                </a>
+                <div th:if="${admin}">
+
+                    <a class="btn btn-warning" th:href="${'rediger/' + barn.id}">
+                        rediger
+                    </a>
+                    <a class="btn btn-danger" th:href="${'afmeld/' + barn.id}">
+                        afmeld
+                    </a>
+                </div>
+
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+        <div th:if="${admin}">
+            <a class="btn btn-success" href="registrer.html">
+                Registrer Barn
+            </a>
+        </div>
+        <a class="pull-right btn btn-danger" href="/index">
+            Log af
+        </a>
+
+
+</div>
+
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+
+</html>

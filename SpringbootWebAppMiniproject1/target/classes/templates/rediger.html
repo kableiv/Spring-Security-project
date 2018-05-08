@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Rediger</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <h1>Rediger Barn</h1>
+    <form method="Post" th:action="@{/rediger}">
+        <p>Rediger id</p>
+        <input type="number" name="ID" th:field="${barn.id}" />
+        <p>Rediger Fornavn:</p>
+        <input type="text" th:field="${barn.fornavn}"/>
+        <p>Rediger Efternavn:</p>
+        <input type="text" th:field="${barn.efternavn}"/>
+        <p>Rediger Alder:</p>
+        <input type="number" th:field="${barn.alder}"/>
+        <p>Rediger Cpr-nummer:</p>
+        <input type="text" th:field="${barn.cpr}"/>
+        <p>Rediger Indmeldelsesdato:</p>
+        <input type="date" th:field="${barn.indmeldelsesdato}"/>
+
+        <input class="btn btn-success" type="submit" value="Opdater"/>
+        <a class="pull-right btn btn-danger" href="/home">
+            Tilbage
+        </a>
+    </form>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

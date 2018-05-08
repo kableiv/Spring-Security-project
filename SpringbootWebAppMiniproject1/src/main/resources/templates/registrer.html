@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Registrer</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <h1>Registrer Barn</h1>
+    <form method="Post" th:action="@{/registrer}">
+
+        <p>Indtast Fornavn:</p>
+        <input type="text" placeholder="Fornavn" th:field="${barn.fornavn}"/>
+        <p>Indtast Efternavn:</p>
+        <input type="text" placeholder="Efternavn" th:field="${barn.efternavn}"/>
+        <p>Indtast Alder:</p>
+        <input type="number" placeholder="Alder" th:field="${barn.alder}"/>
+        <p>Indtast Cpr-nummer:</p>
+        <input type="text" placeholder="Cpr-nummer" th:field="${barn.cpr}"/>
+        <p>Indtast Indmeldelsesdato:</p>
+        <input type="date" placeholder="Indmeldelsesdato" th:field="${barn.indmeldelsesdato}"/>
+
+        <p>
+            <a class="btn btn-Success" type="submit">
+            Gem
+            </a>
+        </p>
+
+    </form>
+        <a class="pull-right btn btn-danger" href="/home">
+            Tilbage
+        </a>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>
